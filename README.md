@@ -73,7 +73,7 @@ Tests are built as a single executable `tests`. That's what you run to execute u
 ## Compilation
 
 **kwarc** only needs the name of the specification file. However it also accept command line 2 options:
-- `-d` - specifies the keyword terminating character to use by the compiler. For example, to use `!` as a terminator one would use: `kwarc -d !kw.spec`
+- `-d` - specifies the keyword terminating character to use by the compiler. For example, to use `!` as a terminator one would use: `kwarc -d ! kw.spec`
 - `-i` - directs the compiler to merge keywords that differ only by the caseness of some of their letters into a single keyword.
 
 > :pushpin: **Note** that `-i` option does not create a case-incensitive automaton. For example, when specification lists `Accept-Charset` and `accept-charset`, the resulting automaton will still reject `ACCEPT-CHARSET` or `AcCePt-ChArSeT` :smiley: even if compiled with `-i` option.
