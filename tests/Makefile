@@ -4,7 +4,7 @@ KWARCDIR := $(realpath $(dir $(CURDIR)))
 ifdef SystemDrive
 	EXE := .exe
 endif
-KWARC := $(KWARCDIR)/kwarc$(EXE)
+KWARC := $(KWARCDIR)/KWARC$(EXE)
 
 CFLAGS 	+= -g
 
@@ -17,6 +17,9 @@ all: $(TESTRUNNER)
 
 $(TESTRUNNER): $(TESTOBJS) test.o tests.o
 	$(CC) $(LDFLAGS) $^ -o $@
+
+http_headers.c: $(KWARC) http_headers.spec
+	$(KWARC) -i -d = $(filter %.spec,$^)
 
 %.c: $(KWARC) %.spec
 	$(KWARC) -i $(filter %.spec,$^)
